@@ -53,6 +53,21 @@ public class Mysqlclass extends HttpServlet {
 			
 
 		}
+		else if (operation.equals("gettable")) {
+			String db=request.getParameter("db");
+			String table=request.getParameter("table");
+			try {
+				Class.forName("com.mysql.jdbc.Driver");
+				Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/");
+				Statement statement = connection.createStatement();
+				String query ="show tables";
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
 	}
+	
 	
 } 
