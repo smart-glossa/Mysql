@@ -1,9 +1,10 @@
 $(window).on('load', function() {
-	
+	var uname=null;
+	var pass=null;
   $(document).on('click', '#butt', function() {
 	  $('#butt').hide();
-    var uname=$('#uname').val();
-    var  pass=$('#pass').val();
+    uname=$('#uname').val();
+      pass=$('#pass').val();
     var url="/Mysql/Mysql?operation=getdb&uname="+uname+"&pass="+pass;
 $.ajax(url)
 .done(function(result){
