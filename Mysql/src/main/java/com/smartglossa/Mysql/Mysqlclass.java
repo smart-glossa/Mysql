@@ -57,8 +57,12 @@ public class Mysqlclass extends HttpServlet {
 			String db=request.getParameter("db");
 			String table=request.getParameter("table");
 			try {
+				JSONArray result = new JSONArray();
+				String uname = request.getParameter("uname");
+				String pass = request.getParameter("pass");
+				String dab=request.getParameter("db");
 				Class.forName("com.mysql.jdbc.Driver");
-				Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/");
+				Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+dab+"",uname,pass);
 				Statement statement = connection.createStatement();
 				String query ="show tables";
 			} catch (Exception e) {
