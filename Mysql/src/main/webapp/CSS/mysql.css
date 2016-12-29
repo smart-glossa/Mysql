@@ -1,7 +1,10 @@
-/*body{
+body{
 	background:black;
 	color:white;
 }
-p{
-	color:white;
-}*/
+#db{
+	background:blue;
+	color:red;
+	cursor:pointer;
+	
+}

@@ -54,17 +54,21 @@ public class Mysqlclass extends HttpServlet {
 
 		}
 		else if (operation.equals("gettable")) {
-			String db=request.getParameter("db");
-			String table=request.getParameter("table");
+			JSONArray result = new JSONArray();
+			String uname = request.getParameter("uname");
+			String pass = request.getParameter("pass");
+			String dab=request.getParameter("dab");
 			try {
-				JSONArray result = new JSONArray();
-				String uname = request.getParameter("uname");
-				String pass = request.getParameter("pass");
-				String dab=request.getParameter("db");
 				Class.forName("com.mysql.jdbc.Driver");
 				Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+dab+"",uname,pass);
 				Statement statement = connection.createStatement();
 				String query ="show tables";
+                ResultSet rs = statement.executeQuery(query);
+				
+				while(rs.next()){
+					result.put(rs.getString(1));	
+				}
+				response.getWriter().print(result);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
