@@ -11,7 +11,7 @@ $(window).on(
 						uname = $('#uname').val();
 						pass = $('#pass').val();
 						if(uname,pass!=""){
-							$('#butt').hide();
+							$('#login').hide();
 						}
 						else{
 							alert("Enter the value");
@@ -21,7 +21,7 @@ $(window).on(
 						$.ajax(url).done(function(result) {
 							// console.log();
 							// alert(result);
-							var rs = JSON.parse(result)
+							var rs = JSON.parse(result);
 							var table = document.createElement("table");
 							document.body.appendChild(table);
 							for (var i = 0; i < rs.length; i++) {
