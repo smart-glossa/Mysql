@@ -30,52 +30,50 @@ public class Mysqlclass extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String operation = request.getParameter("operation");
-		
+		String mysqlServer = System.getProperty("mysql");
 		if (operation.equals("getdb")) {
 			JSONArray result = new JSONArray();
 			String uname = request.getParameter("uname");
 			String pass = request.getParameter("pass");
 			try {
 				Class.forName("com.mysql.jdbc.Driver");
-				Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/", uname, pass);
+				Connection connection = DriverManager.getConnection("jdbc:mysql://" + mysqlServer + "/", uname, pass);
 				Statement statement = connection.createStatement();
-				String query ="show databases";
+				String query = "show databases";
 				ResultSet rs = statement.executeQuery(query);
-				
-				while(rs.next()){
-					result.put(rs.getString(1));	
+
+				while (rs.next()) {
+					result.put(rs.getString(1));
 				}
 				response.getWriter().print(result);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
 
-		}
-		else if (operation.equals("gettable")) {
+		} else if (operation.equals("gettable")) {
 			JSONArray result = new JSONArray();
 			String uname = request.getParameter("uname");
 			String pass = request.getParameter("pass");
-			String dab=request.getParameter("dab");
+			String dab = request.getParameter("dab");
 			try {
 				Class.forName("com.mysql.jdbc.Driver");
-				Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+dab+"",uname,pass);
+				Connection connection = DriverManager.getConnection("jdbc:mysql://" + mysqlServer + "/" + dab + "",
+						uname, pass);
 				Statement statement = connection.createStatement();
-				String query ="show tables";
-                ResultSet rs = statement.executeQuery(query);
-				
-				while(rs.next()){
-					result.put(rs.getString(1));	
+				String query = "show tables";
+				ResultSet rs = statement.executeQuery(query);
+
+				while (rs.next()) {
+					result.put(rs.getString(1));
 				}
 				response.getWriter().print(result);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
+
 		}
 	}
-	
-	
-} 
+
+}
