@@ -9,8 +9,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 public class Mysqlclass extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -66,6 +66,41 @@ public class Mysqlclass extends HttpServlet {
 
 				while (rs.next()) {
 					result.put(rs.getString(1));
+				}
+				response.getWriter().print(result);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		} else if (operation.equals("ssft")) {
+			JSONArray result = new JSONArray();
+			String uname = request.getParameter("uname");
+			String pass = request.getParameter("pass");
+			String dab = request.getParameter("dab");
+			String tableName = request.getParameter("tableName");
+			try {
+				Class.forName("com.mysql.jdbc.Driver");
+				Connection connection = DriverManager.getConnection("jdbc:mysql://" + mysqlServer + "/" + dab + "",
+						uname, pass);
+				Statement statement = connection.createStatement();
+				String query = "desc " + tableName;
+				ResultSet rs = statement.executeQuery(query);
+
+				while (rs.next()) {
+					JSONObject obj = new JSONObject();
+					obj.put("columnName", rs.getString(1));
+					String columnName = rs.getString(1);
+					Class.forName("com.mysql.jdbc.Driver");
+					Connection conn = DriverManager.getConnection("jdbc:mysql://" + mysqlServer + "/" + dab + "",
+							uname, pass);
+					Statement stmt = conn.createStatement();
+					String query1 = "Select "+ columnName +" from "+ tableName;
+					ResultSet rs1 = stmt.executeQuery(query1);
+					while (rs.next()){
+						obj.put("columnValue", rs.getString(1));
+					}
+					result.put(obj);
 				}
 				response.getWriter().print(result);
 			} catch (Exception e) {
