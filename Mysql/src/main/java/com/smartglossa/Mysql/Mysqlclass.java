@@ -90,19 +90,22 @@ public class Mysqlclass extends HttpServlet {
 				ResultSetMetaData metaData = rs.getMetaData();
 				int coulmnCount = metaData.getColumnCount();
 				JSONArray columnNames = new JSONArray();
-				for (int i =0 ; i< coulmnCount; i++) {
+				for (int i =1 ; i<=coulmnCount; i++) {
 					columnNames.put(metaData.getColumnName(i));
 				}
 				result.put("columnName", columnNames);
+				JSONArray keys = new JSONArray();
 				int key = 0;
 				while (rs.next()) {
+				    keys.put(key);
 					JSONArray row = new JSONArray();
 					for (int i=0; i < coulmnCount; i++) {
 						row.put(rs.getString(columnNames.getString(i)));
 					}
-					result.put("" + key, row);
+					result.put("r" + key, row);
 					key++;
 				}
+				result.put("keys", keys);
 				response.getWriter().print(result);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
