@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.Statement;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -74,7 +75,7 @@ public class Mysqlclass extends HttpServlet {
 			}
 
 		} else if (operation.equals("ssft")) {
-			JSONArray result = new JSONArray();
+			JSONObject result = new JSONObject();
 			String uname = request.getParameter("uname");
 			String pass = request.getParameter("pass");
 			String dab = request.getParameter("dab");
@@ -84,23 +85,23 @@ public class Mysqlclass extends HttpServlet {
 				Connection connection = DriverManager.getConnection("jdbc:mysql://" + mysqlServer + "/" + dab + "",
 						uname, pass);
 				Statement statement = connection.createStatement();
-				String query = "desc " + tableName;
+				String query = "select * from " + tableName;
 				ResultSet rs = statement.executeQuery(query);
-
+				ResultSetMetaData metaData = rs.getMetaData();
+				int coulmnCount = metaData.getColumnCount();
+				JSONArray columnNames = new JSONArray();
+				for (int i =0 ; i< coulmnCount; i++) {
+					columnNames.put(metaData.getColumnName(i));
+				}
+				result.put("columnName", columnNames);
+				int key = 0;
 				while (rs.next()) {
-					JSONObject obj = new JSONObject();
-					obj.put("columnName", rs.getString(1));
-					String columnName = rs.getString(1);
-					Class.forName("com.mysql.jdbc.Driver");
-					Connection conn = DriverManager.getConnection("jdbc:mysql://" + mysqlServer + "/" + dab + "",
-							uname, pass);
-					Statement stmt = conn.createStatement();
-					String query1 = "Select "+ columnName +" from "+ tableName;
-					ResultSet rs1 = stmt.executeQuery(query1);
-					while (rs.next()){
-						obj.put("columnValue", rs.getString(1));
+					JSONArray row = new JSONArray();
+					for (int i=0; i < coulmnCount; i++) {
+						row.put(rs.getString(columnNames.getString(i)));
 					}
-					result.put(obj);
+					result.put("" + key, row);
+					key++;
 				}
 				response.getWriter().print(result);
 			} catch (Exception e) {

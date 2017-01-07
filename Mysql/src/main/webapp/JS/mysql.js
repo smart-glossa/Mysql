@@ -64,7 +64,8 @@ $(window).on(
 							var h1t = document.createTextNode(dab);
 							h1.appendChild(h1t);
 							tr1.appendChild(h1);
-							for (var i = 0; i < rs.length; i++) {
+							for (
+									var i = 0; i < rs.length; i++) {
 								// $('#table').append(rs[i]);
 
 								var tr = document.createElement("tr");
@@ -104,7 +105,7 @@ $(window).on(
 							var tr1 = document.createElement("tr");
 							table.appendChild(tr1);
 							var h1 = document.createElement("h1");
-							var h1t = document.createTextNode(dab);
+							var h1t = document.createTextNode(tableName);
 							h1.appendChild(h1t);
 							tr1.appendChild(h1);
 							for (var i = 0; i < rs.length; i++) {
