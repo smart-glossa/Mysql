@@ -96,24 +96,24 @@ $(window).on(
                     "&pass=" + pass + "&dab=" + dab +
                     "&tableName=" + tableName;
                 $.ajax(url).done(function(result) {
-									 	var response = JSON.parse(result);
-										var columns = response.columnName;
-										var table = "<table><th>"
-										for(var i=0; i < columns.length; i++) {
-											table += "<td>" + columns[i] + "</td>"
-										}
-										table += "</th>"
-										var rowCount = response.keys.length;
-										for (var i=0;i<rowCount; i++) {
-											//var keyString =  "r" + i;
-											var row = response.r + "i";
-											table += "<tr>"
-											for (var j=0;j<columns.length;j++) {
-												table += "<td>" + row[j] + "</td>"
-											}
-											table += "</tr>"
-										}
-										$("#table").append(table);
+                    var response = JSON.parse(result);
+                    var columns = response.columnName;
+                    var table = "<table><th>"
+                    for (var i = 0; i < columns.length; i++) {
+                        table += "<td>" + columns[i] + "</td>"
+                    }
+                    table += "</th>"
+                    var rowCount = response.keys.length;
+                    for (var i = 0; i < rowCount; i++) {
+                        //var keyString =  "r" + i;
+                        var row = response['r' + i];
+                        table += "<tr>"
+                        for (var j = 0; j < columns.length; j++) {
+                            table += "<td>" + row[j] + "</td>"
+                        }
+                        table += "</tr>"
+                    }
+                    $("#table").append(table);
                     // alert(result);
                 }).fail(function(result) {
                     // console.log();
