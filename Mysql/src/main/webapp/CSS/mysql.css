@@ -6,17 +6,13 @@ body{
 	background:blue;
 	color:red;
 	cursor:pointer;
+
 }
-#tab{
-	/*background:red;*/
-	 padding-top: 50px;
-    padding-right: 30px;
-    padding-bottom: 250px;
-    padding-left: 200px;
-	}
+
 	.first
 	{
 		/*border: 1px solid blue;*/
+		
 		height: 500px;
 		width: 500px;
 		float: left;
@@ -28,11 +24,15 @@ body{
 		height: 300;
 		width: 400;
 		float: left;
+		position:fixed;
+		margin-left:170px;
 	}
 	.third
 	{
 		/*border:  1px solid red;*/
 		height: 300;
 		width: 420;
-		float: left;
+		float:right;
+		position:initial;
+			
 	}

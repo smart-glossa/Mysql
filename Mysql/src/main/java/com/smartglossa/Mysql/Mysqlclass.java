@@ -90,7 +90,7 @@ public class Mysqlclass extends HttpServlet {
 				ResultSetMetaData metaData = rs.getMetaData();
 				int coulmnCount = metaData.getColumnCount();
 				JSONArray columnNames = new JSONArray();
-				for (int i =1 ; i<=coulmnCount; i++) {
+				for (int i =1; i<=coulmnCount; i++) {
 					columnNames.put(metaData.getColumnName(i));
 				}
 				result.put("columnName", columnNames);

@@ -52,7 +52,7 @@ $(window).on(
                 uname = $('#uname').val();
                 pass = $('#pass').val();
                 dab = $($(this)[0]).text();
-                $('.first').hide();
+               // $('.first').hide();
                 var url = "/Mysql/Mysql?operation=gettable&uname=" +
                     uname + "&pass=" + pass + "&dab=" + dab;
                 $.ajax(url).done(function(result) {
@@ -98,7 +98,7 @@ $(window).on(
                 uname = $('#uname').val();
                 pass = $('#pass').val();
                 tableName = $($(this)[0]).text();
-                $('.second').hide();
+                //$('.second').hide();
                 var url = "/Mysql/Mysql?operation=ssft&uname=" + uname +
                     "&pass=" + pass + "&dab=" + dab +
                     "&tableName=" + tableName;
