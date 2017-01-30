@@ -1,6 +1,7 @@
 body{
-	background:black;
+	background:lightgreen;
 	color:white;
+	font-style:italic;
 }
 #db{
 	background:blue;
@@ -16,6 +17,7 @@ body{
 		height: 500px;
 		width: 500px;
 		float: left;
+			position:fixed;
 	}
 
 	.second
@@ -36,16 +38,18 @@ body{
 		position:static;
 			
 	}
-	#tbl {
-    border: 1px solid black;
+	input[type='submit']
+{
+	width: 110px;
+	height: 40px;
+	border: 2px solid white;
+	background-color:#CCC;
 }
-
-#tbl {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-.td {
-    height: 50px;
-    vertical-align: bottom;
+input[type='submit']:hover
+{
+	width: 110px;
+	height: 40px;
+	border: 2px solid white;
+	background-color:#000000;
+	color:#fff;
 }

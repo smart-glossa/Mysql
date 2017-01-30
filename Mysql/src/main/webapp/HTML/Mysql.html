@@ -5,24 +5,34 @@
 <link rel="stylesheet" type="text/css" href="CSS/mysql.css">
 <script src="JS/jquery.js"></script>
 <script src="JS/mysql.js"></script>
+<script src="JS/cngcolr.js"></script>
 </head>
 <body>
 
-	<div>
+	<div class="">
 		<h1>Smart Sql</h1>
+		<hr>
 		<div id="login">
 			<table>
 				<tr>
 					<td>UNAME:</td>
 					<td><input type="text" id="uname" /></td>
 					<td>PASSWORD:</td>
-					<td><input type="password" id="pass" /></td>
-				</tr>
-				<tr>
+					<td><input type="password" id="pass" /></td>				
 					<td></td>
 					<td><button id="butt">Submit</button></td>
 				</tr>
 			</table>
+			<select>
+                <!--This is the drop-down list-->
+                <option id="red" onclick="changeColor()">Red</option>
+                <option id="orange" onclick="changeColor()">Orange</option>
+                <option id="yellow" onclick="changeColor()">Yellow</option>
+                <option id="green" onclick="changeColor()">Green</option>
+                <option id="blue" onclick="changeColor()">Blue</option>
+                <option id="purple" onclick="changeColor()">Purple</option>
+            </select>
+			<hr>
 		</div>
 
 		<p id="p"></p>

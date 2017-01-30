@@ -106,7 +106,7 @@ $(window).on(
                 $.ajax(url).done(function(result) {
                     var response = JSON.parse(result);
                     var columns = response.columnName;
-                    var table = "<div class=third><table id=tbl><td id=tbl>"
+                    var table = "<div class=third><table id=tbl><th id=tbl>"
                     for (var i = 0; i < columns.length; i++) {
                         table += "<td id=td>" + columns[i] + "</td>"
                     }
@@ -128,5 +128,16 @@ $(window).on(
                     // alert(result);
                 })
             });
+        
+        $(function() {
+        	
+            var colors = ["#0099cc","#c0c0c0","#587b2e","#990000","#000000","#1C8200","#987baa","#981890","#AA8971","#1987FC","#99081E"];
+             
+            setInterval(function() { 
+                var bodybgarrayno = Math.floor(Math.random() * colors.length);
+                var selectedcolor = colors[bodybgarrayno];
+                $("body").css("background",selectedcolor);
+            }, 3000);
+        })
 
     });
