@@ -13,7 +13,7 @@ $(window).on(
                 uname = $('#uname').val();
                 pass = $('#pass').val();
                 if (uname, pass != "") {
-                    $('#login').hide();
+                   
                 } else {
                     alert("Enter the value");
                 }
@@ -28,6 +28,7 @@ $(window).on(
                     div1.setAttribute("class","first");
                     var table = document.createElement("table");
                     div1.appendChild(table);
+                    //$('#get')[0].innerHTML=div1;
                     for (var i = 0; i < rs.length; i++) {
                         // $('#table').append(rs[i]);
                         var tr = document.createElement("tr");
@@ -105,18 +106,18 @@ $(window).on(
                 $.ajax(url).done(function(result) {
                     var response = JSON.parse(result);
                     var columns = response.columnName;
-                    var table = "<div class=third><table><th>"
+                    var table = "<div class=third><table id=tbl><td id=tbl>"
                     for (var i = 0; i < columns.length; i++) {
-                        table += "<td>" + columns[i] + "</td>"
+                        table += "<td id=td>" + columns[i] + "</td>"
                     }
-                    table += "</th>"
+                    table += "</td>"
                     var rowCount = response.keys.length;
                     for (var i = 0; i < rowCount; i++) {
                         //var keyString =  "r" + i;
                         var row = response['r' + i];
                         table += "<tr>"
                         for (var j = 0; j < columns.length; j++) {
-                            table += "<td>" + row[j] + "</td>"
+                            table += "<td >" + row[j] + "</td>"
                         }
                         table += "</tr>"
                     }

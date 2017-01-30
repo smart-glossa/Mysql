@@ -33,6 +33,19 @@ body{
 		height: 300;
 		width: 420;
 		float:right;
-		position:initial;
+		position:static;
 			
 	}
+	#tbl {
+    border: 1px solid black;
+}
+
+#tbl {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.td {
+    height: 50px;
+    vertical-align: bottom;
+}
