@@ -1,72 +1,94 @@
-body{
-	background:lightgreen;
-	color:white;
-	font-style:italic;
-}
-#db{
-	background:blue;
-	color:red;
-	cursor:pointer;
-
+#db {
+    cursor: pointer;
 }
 
-	.first
-	{
-		/*border: 1px solid blue;*/
-		
-		height: 500px;
-		width: 500px;
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    color: #3b3b3b;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+}
+
+.wrapper {
+    margin: 0 auto;
+    padding: 40px;
+    max-width: 800px;
+}
+
+table {
+    margin: 0 0 40px 0;
+    width: 100%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    display: table;
+}
+
+@media screen and (max-width: 580px) {
+    .table {
+        display: block;
+    }
+}
+
+.row {
+    display: table-row;
+    background: #f6f6f6;
+}
+
+.row:nth-of-type(odd) {
+    background: #e9e9e9;
+}
+
+.row.header {
+    font-weight: 900;
+    color: #ffffff;
+    background: #ea6153;
+}
+
+.green {
+    background: #27ae60;
+}
+
+.row.blue {
+    background: #2980b9;
+}
+
+@media screen and (max-width: 580px) {
+    .row {
+        padding: 8px 0;
+        display: block;
+    }
+}
+
+.cell {
+    padding: 6px 12px;
+    display: table-cell;
+}
+
+@media screen and (max-width: 580px) {
+    .cell {
+        padding: 2px 12px;
+        display: block;
+    }
+}
+
+.first {
+    /*border: 1px solid blue;*/
+    float: left;
+    position: absoulte;
+}
+
+.second {
+    /*border:  1px solid green;*/
+    float: left;
+    position: absolute;
+    margin-left: 170px;
+}
+
+.third {
+    /*border:  1px solid red;*/
 		float: left;
-			position:fixed;
-	}
-
-	.second
-	{
-		/*border:  1px solid green;*/
-		height: 300;
-		width: 400;
-		float: left;
-		position:absolute;
-		margin-left:170px;
-	}
-	.third
-	{
-		/*border:  1px solid red;*/
-		height: 300;
-		width: 420;
-		margin-left:550px;
-		position:absolute;
-			
-	}
-	
-input
-{
-	border-right: 5px solid white;
-	outline: none;
-	border-bottom: 5px solid #ffa726;
-	border-left: 5px solid white;
-	border-top: none; 
-	width: 180px;
-	height: 20px;
-}
-button
-{
-	float: right;
-	margin-top: 30px;
-	margin-right: 40px;
-	width:140px;
-	height: 50px;
-	border-radius:40%; 
-	background-color: #e0f7fa;
-	border:none;
-	font-size: 20px;
-	font-family: lucida calligraphy ;
-	outline: none;
-
-}
-
-.tbl, .th, .td {
-    border: 1px solid black;
-    font-family: Brush Script MT;
-    	font-size: 30px;
+    margin-left: 550px;
+    position: absolute;
 }
