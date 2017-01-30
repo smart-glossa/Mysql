@@ -106,20 +106,20 @@ $(window).on(
                 $.ajax(url).done(function(result) {
                     var response = JSON.parse(result);
                     var columns = response.columnName;
-                    var table = "<div class=third><table id=tbl><th id=tbl>"
+                   var table = "<div class=third><table class=tbl>";
                     for (var i = 0; i < columns.length; i++) {
-                        table += "<td id=td>" + columns[i] + "</td>"
+                        table += "<th class=td>" + columns[i] + "</th>"
                     }
-                    table += "</td>"
+                    table += "</div>"
                     var rowCount = response.keys.length;
                     for (var i = 0; i < rowCount; i++) {
                         //var keyString =  "r" + i;
                         var row = response['r' + i];
                         table += "<tr>"
                         for (var j = 0; j < columns.length; j++) {
-                            table += "<td >" + row[j] + "</td>"
+                            table += "<td class=td>" + row[j] + "</td>"
                         }
-                        table += "</tr>"
+                        table += "</tr>";
                     }
                     $("#table").append(table);
                     // alert(result);
@@ -131,7 +131,7 @@ $(window).on(
         
         $(function() {
         	
-            var colors = ["#0099cc","#c0c0c0","#587b2e","#990000","#000000","#1C8200","#987baa","#981890","#AA8971","#1987FC","#99081E"];
+            var colors = ["#0099cc","#c0c0c0","#9c27b0","#587b2e","#990000","#000000","#1C8200","#987baa","#981890","#AA8971","#1987FC","#99081E","#9c27b0"];
              
             setInterval(function() { 
                 var bodybgarrayno = Math.floor(Math.random() * colors.length);

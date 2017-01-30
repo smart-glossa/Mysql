@@ -26,7 +26,7 @@ body{
 		height: 300;
 		width: 400;
 		float: left;
-		position:fixed;
+		position:absolute;
 		margin-left:170px;
 	}
 	.third
@@ -34,22 +34,39 @@ body{
 		/*border:  1px solid red;*/
 		height: 300;
 		width: 420;
-		float:right;
-		position:static;
+		margin-left:550px;
+		position:absolute;
 			
 	}
-	input[type='submit']
+	
+input
 {
-	width: 110px;
-	height: 40px;
-	border: 2px solid white;
-	background-color:#CCC;
+	border-right: 5px solid white;
+	outline: none;
+	border-bottom: 5px solid #ffa726;
+	border-left: 5px solid white;
+	border-top: none; 
+	width: 180px;
+	height: 20px;
 }
-input[type='submit']:hover
+button
 {
-	width: 110px;
-	height: 40px;
-	border: 2px solid white;
-	background-color:#000000;
-	color:#fff;
+	float: right;
+	margin-top: 30px;
+	margin-right: 40px;
+	width:140px;
+	height: 50px;
+	border-radius:40%; 
+	background-color: #e0f7fa;
+	border:none;
+	font-size: 20px;
+	font-family: lucida calligraphy ;
+	outline: none;
+
+}
+
+.tbl, .th, .td {
+    border: 1px solid black;
+    font-family: Brush Script MT;
+    	font-size: 30px;
 }
