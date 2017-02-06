@@ -32,7 +32,7 @@ $(window).on(
                     th.setAttribute("class", "row header blue");
                     table.appendChild(th);
                     $(th).append("Databases")
-                    div1.append(table);
+                    $(div1).append(table);
                     for (var i = 0; i < rs.length; i++) {
                         var tr = document.createElement("tr");
                         table.appendChild(tr);
